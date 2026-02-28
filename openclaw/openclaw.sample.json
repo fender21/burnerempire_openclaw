@@ -1,0 +1,39 @@
+{
+  "_comment": "Reference OpenClaw config for Arena Agent. You don't need to copy this file — follow the README.md steps instead. This shows what the config looks like after setup.",
+  "models": {
+    "providers": {
+      "openrouter": {
+        "baseUrl": "https://openrouter.ai/api/v1",
+        "apiKey": "${OPENROUTER_API_KEY}"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openrouter/qwen/qwen3-32b"
+      }
+    },
+    "list": [
+      {
+        "id": "arena",
+        "name": "arena",
+        "workspace": "YOUR_ABSOLUTE_PATH/tools/arena",
+        "agentDir": "YOUR_ABSOLUTE_PATH/tools/arena/openclaw/agent"
+      }
+    ]
+  },
+  "bindings": [
+    {
+      "_comment": "Optional: route a chat channel to the arena agent. Remove this section if using CLI only.",
+      "agentId": "arena",
+      "match": {
+        "channel": "YOUR_CHANNEL",
+        "accountId": "YOUR_ACCOUNT_ID"
+      }
+    }
+  ],
+  "gateway": {
+    "port": 18789
+  }
+}

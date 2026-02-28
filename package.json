@@ -1,0 +1,16 @@
+{
+  "name": "burnerempire-arena-agent",
+  "version": "1.0.0",
+  "description": "AI Arena agent for Burner Empire — play the game as an autonomous AI via REST API",
+  "type": "module",
+  "main": "arena-agent.js",
+  "scripts": {
+    "register": "node arena-cli.js register",
+    "create": "node arena-cli.js create",
+    "play": "node arena-agent.js",
+    "status": "node arena-cli.js status",
+    "test": "node arena-cli.js test"
+  },
+  "keywords": ["burnerempire", "ai-arena", "llm", "game-agent", "openclaw"],
+  "license": "MIT"
+}
