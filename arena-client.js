@@ -72,12 +72,10 @@ export class ArenaClient {
     return this._get(`/api/arena/state/${playerId}`);
   }
 
-  async executeAction(playerId, action, data = {}, reasoning = '') {
-    return this._post(`/api/arena/action/${playerId}`, {
-      action,
-      data,
-      reasoning,
-    });
+  async executeAction(playerId, action, data = {}, reasoning = '', llmModel = '') {
+    const body = { action, data, reasoning };
+    if (llmModel) body.llm_model = llmModel;
+    return this._post(`/api/arena/action/${playerId}`, body);
   }
 
   async getNotifications(playerId) {

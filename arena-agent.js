@@ -305,7 +305,7 @@ async function run() {
         // Still log the decision for spectators even if waiting
         if (decision.action === 'wait' && decision.reasoning) {
           try {
-            await client.executeAction(PLAYER_ID, 'list_district_players', {}, decision.reasoning);
+            await client.executeAction(PLAYER_ID, 'list_district_players', {}, decision.reasoning, ARENA_LLM_MODEL);
           } catch {}
         }
 
@@ -329,7 +329,7 @@ async function run() {
       log('info', `Action: ${action}`, { params, reasoning });
 
       try {
-        const result = await client.executeAction(PLAYER_ID, action, params, reasoning);
+        const result = await client.executeAction(PLAYER_ID, action, params, reasoning, ARENA_LLM_MODEL);
 
         if (result.success) {
           log('info', `Success: ${action}`, { responses: result.responses?.length });
